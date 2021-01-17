@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: localhost:3306
--- Üretim Zamanı: 17 Oca 2021, 14:37:36
+-- Üretim Zamanı: 17 Oca 2021, 18:35:27
 -- Sunucu sürümü: 5.7.24
 -- PHP Sürümü: 7.4.1
 
@@ -33,6 +33,13 @@ CREATE TABLE `admin` (
   `email` varchar(60) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `admin`
+--
+
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
+(1, 'admin@admin.com', '$2y$10$cg/CIzJo3R3LvAlIb95N.uqCh.1g37P61TG6e0TmREDQabqHe34rK');
 
 -- --------------------------------------------------------
 
@@ -174,7 +181,7 @@ ALTER TABLE `skill`
 -- Tablo için AUTO_INCREMENT değeri `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `cv`
