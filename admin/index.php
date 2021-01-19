@@ -18,6 +18,7 @@ $contentexper = $queryexper->fetchAll(PDO::FETCH_ASSOC);
 
 $queryskill = $conn->prepare("Select skillname, skillrate From skill");
 $queryskill->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +40,7 @@ $queryskill->execute();
                 <h1>Admin Paneli</h1>
             </div>
         </div>
-        <form action="" id="admin-form" method="POST">
+        <form action="send.php" method="POST">
             <div class="form-group">
                 <label>Web site başlığı</label>
                 <input type="text" class="form-control" name="txttitle" value="<?= $content->title; ?>">
@@ -108,7 +109,7 @@ $queryskill->execute();
 
 
             <div class="col-md-12 text-center">
-                <button class="btn btn-primary btn-lg" type="submit">Kaydet</button>
+                <input type="submit" name="update" value="Kaydet" class="btn btn-primary btn-lg">
                 <a href="logout.php" class="btn btn-danger btn-md">Çıkış Yap</a>
             </div>
         </form>
