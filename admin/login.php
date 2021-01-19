@@ -16,12 +16,12 @@
                     $_SESSION["admin"] = $out["email"];
                     $message = "Giriş başarılı :)";
                     header("Refresh: 0; url=index.php");
-                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    //echo "<script type='text/javascript'>alert('$message');</script>";
                 }
                 else
                 {
                     $message = "Giriş başarısız :X";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    //echo "<script type='text/javascript'>alert('$message');</script>";
                 }
             }
         }
