@@ -2,7 +2,7 @@
     include "../config/db.php";
     include "functions.php";
     session_start();
-    !sessionControl() ? header("Location: index") : "";
+    sessionControl() ? header("Location: index") : "";
     if (isset($_POST)){
         $email = $_POST["email"];
         $password = $_POST["password"];

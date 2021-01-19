@@ -2,7 +2,7 @@
 include "../config/db.php";
 include "functions.php";
 session_start();
-!sessionControl() ? header("Location: index") : "";
+!sessionControl() ? header("Location: login.php") : "";
 
 $query = $conn->prepare("Select * From cv");
 $query->execute();

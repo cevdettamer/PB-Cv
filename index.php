@@ -8,9 +8,11 @@ $content = $query->fetch(PDO::FETCH_OBJ);
 
 $queryedu = $conn->prepare("Select schoolname, edutime, edutitle, edudes From education");
 $queryedu->execute();
+$contentedu = $queryedu->fetchAll(PDO::FETCH_ASSOC);
 
 $queryexper = $conn->prepare("Select companyname, expertime, expertitle, experdes From experiments");
 $queryexper->execute();
+$contentexper = $queryexper->fetchAll(PDO::FETCH_ASSOC);
 
 $queryskill = $conn->prepare("Select skillname, skillrate From skill");
 $queryskill->execute();
@@ -107,38 +109,40 @@ $queryskill->execute();
         <h3 class="experience-title">Eğitim</h3>
         <div class="experience-wrapper">
           <?php
-          foreach ($queryedu as $edu) {
-            echo '
-      	<div class="company-wrapper clearfix">
-      		<div class="experience-title">' . $edu["schoolname"] . '</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-          <div class="time">' . $edu["edutime"] . '</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-      	</div>
-        
-        <div class="job-wrapper clearfix">
-        	<div class="experience-title">' . $edu["edutitle"] . '</div> <!-- JOB TITLE  -->
-          <div class="company-description">
-          	<p>' . $edu["edudes"] . '</p>  <!-- JOB DESCRIPTION  -->
-          </div>
-        </div>';
+          foreach ($contentedu as $edu) {
+          ?>
+            <div class="company-wrapper clearfix">
+              <div class="experience-title"><?php echo $edu['schoolname']; ?></div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
+              <div class="time"><?php echo $edu['edutime']; ?></div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
+            </div>
+
+            <div class="job-wrapper clearfix">
+              <div class="experience-title"><?php echo $edu['edutitle']; ?></div> <!-- JOB TITLE  -->
+              <div class="company-description">
+                <p><?php echo $edu['edudes']; ?></p> <!-- JOB DESCRIPTION  -->
+              </div>
+            </div>
+          <?php
           }
           ?>
 
           <h3 class="experience-title">Deneyim</h3>
 
           <?php
-          foreach ($queryexper as $exper) {
-            echo '
-        <div class="company-wrapper clearfix">
-      		<div class="experience-title">' . $exper["companyname"] . '</div>
-          <div class="time">' . $exper["expertime"] . '</div> 
-      	</div>
-        
-        <div class="job-wrapper clearfix">
-        	<div class="experience-title">' . $exper["expertitle"] . '</div>
-          <div class="company-description">
-          	<p>' . $exper["experdes"] . '</p>  <!-- JOB DESCRIPTION  -->
-          </div>
-        </div>';
+          foreach ($contentexper as $exper) {
+          ?>
+            <div class="company-wrapper clearfix">
+              <div class="experience-title"><?php echo $exper['companyname']; ?></div>
+              <div class="time"><?php echo $exper['expertime']; ?></div>
+            </div>
+
+            <div class="job-wrapper clearfix">
+              <div class="experience-title"><?php echo $exper['expertitle']; ?></div>
+              <div class="company-description">
+                <p><?php echo $exper['experdes']; ?></p> <!-- JOB DESCRIPTION  -->
+              </div>
+            </div>
+          <?php
           }
           ?>
         </div>
